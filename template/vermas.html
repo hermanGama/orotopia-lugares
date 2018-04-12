@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ver Mas</title>
+		
+		  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+		  <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+		  <!-- Theme style -->
+		  <link rel="stylesheet" href="{% static 'css/AdminLTE.min.css' %}">
+		  
+		  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+   
+    </head>
+    <body >
+	
+	 <style type="text/css">
+	 .flotante {
+		display:scroll;
+			position:fixed;
+			bottom:10px;
+			right:0px;
+	}
+	.centrar{
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+	</style>
+        <!-- header logo: style can be found in header.less -->
+		<a class='flotante' href="Javascript:window.close()" ><img src="{% static 'css/home.png' %}" width="150px" border="0"/></a>
+
+       
+         
+                <section class="content">
+                        <div class='centrar'>
+						<img src="{{imagen.url}}" width="40%" height="40%">
+						</div>						
+						<br>
+                        <div class="col-md-16">
+                            <!-- Custom Tabs (Pulled to the right) -->
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs pull-right">
+                                    <li class="active"><a href="#tab_1-1" data-toggle="tab">{{tituloPage}}</a></li> 
+                                    <li class="pull-left header"><i class="fa fa-th"></i> Descripcion</li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_1-1">
+                                        <b>{{tituloPage}}</b>
+                                        <p>{{descripcion}}</p>
+                                       
+                                    </div><!-- /.tab-pane -->
+                                  
+                                </div><!-- /.tab-content -->
+                            </div><!-- nav-tabs-custom -->
+                        </div><!-- /.col -->
+                </section><!-- /.content -->
+          
+
+    </body>
+</html>

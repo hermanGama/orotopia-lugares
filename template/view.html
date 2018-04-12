@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+                    <meta charset="utf-8">
+        
+<title>{{titulo}}</title>
+<link rel="stylesheet" type="text/css" href="{% static 'app.css' %}">
+
+
+<body class="first-run has-menu" data-modal=""> 
+    
+<div class="background-container">
+    <div class="background">
+        <div class="bg-layers">
+            <div class="background-color"></div>
+                <div class="bg-layer bg-layer-bgmobile" style="background-color: #4d878e;"></div>
+                     <div class="bg-layer bg-layer-bgdesktop" style="background-color: #4d878e;">
+                        <figure class="page-image page-image-normal" style="
+                        background-image: url(media/{{imagen}});
+                        background-position: center center;
+                        background-color: #4d878e;">
+						</figure>
+                    </div>
+        </div>
+    </div>
+</div>
+
+  
+    
+                
+
+
+<div id="menu-region">
+<div class="menu in" style="">  
+    <nav class="menu-list">
+        <div class="menu-head" style="opacity: 1;">
+            <div class="menu-head-container">
+                <h1 class="menu-head-title">{{titulo}}</h1>
+                <div class="menu-head-logo">
+                    <img src="media/{{fondomovil}}" alt="{{titulo}}">
+                </div>
+                <div class="menu-head-logo-small">
+                    <img src="media/{{fondomovil}}" alt="{{titulo}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-list-items">
+		{% for dato in vistas %}
+			{% if  dato.activo  == "A"  %}
+				<a href="{{ dato.id }}/ver" class="menu-item shown active">
+			{% else %}
+				<a href="{{ dato.id }}/ver" class="menu-item ">
+			{% endif %}
+			
+				<div class="menu-item-bg gradient-5" style="background-color: rgb(77, 135, 142); height: 100%;">
+					<div class="menu-item-bg-img in" style="background-position: center center; background-image: url({{dato.imagen.url}});"></div>
+				</div>
+				<div class="menu-item-content" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">					
+						<span class="menu-item-number" style="transform: matrix(1, 0, 0, 1, 0, 0);">{{dato.id}}</span>
+						<span class="menu-item-title small">{{dato.titulo}}</span>					
+				</div>
+			</a>
+		{% endfor %}
+			
+			
+			
+		</div>
+
+	</nav>
+</div>
+	
+</div>
+              
+</body></html>

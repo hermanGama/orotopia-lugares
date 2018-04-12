@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{tituloPage}}</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"  >
+
+  
+</head>
+
+<body>
+
+  <div class="slider">
+  <!-- slides -->
+  <div class="slider__slides">
+  {% for dato in vistas %}
+			{% if  dato.tipo  == "A"  %}
+				 <div class="slide s--active">
+			{% elif  dato.tipo  == "C"  %}
+				<div class="slide">
+			{% elif  dato.tipo  == "B"  %}
+				<div class="slide s--prev">
+			{% endif %}	
+				
+			  <div class="slide__inner">
+				<div class="slide__content">
+				<style type="text/css">
+					.slide:nth-child({{dato.idPagina}}) .slide__inner {
+					  background-image: url({{dato.imagen.url}});
+					}
+				</style>
+				  <h2 class="slide__heading">{{dato.titulo}} </h2>
+				  <p class="slide__text"  >{{dato.descripcioncorta}}</p>
+				  
+				   <button type="submit"  onclick="ventanaNueva('/{{dato.idPagina}}/vermas')"  class="btn bb" >Ver mas..</button>	
+
+
+ 
+				</div>
+			  </div>
+			</div>			
+		{% endfor %}
+
+  
+  </div>
+  </div>
+
+  <div class="slider__control">
+    <div class="slider__control-line"></div>
+    <div class="slider__control-line"></div>
+  </div>
+  <div class="slider__control slider__control--right m--right">
+    <div class="slider__control-line"></div>
+    <div class="slider__control-line"></div>
+  </div>
+</div>
+  
+ <script  src="{% static 'js/index.js' %}"></script>
+ 
+ <script>
+ function ventanaNueva(documento){	
+ 
+	var altura=380;
+	var anchura=630;
+
+
+	var y=parseInt((window.screen.height/2)-(altura/2));
+
+	var x=parseInt((window.screen.width/2)-(anchura/2));
+
+	window.open(documento,'nuevaVentana',target='blank','width='+anchura+',height='+altura+',top='+y+',left='+x+',toolbar=no,location=no,status=no,menubar=no,scrollbars=no,directories=no,resizable=no')
+
+}
+
+ </script>
+</body>
+
+</html>

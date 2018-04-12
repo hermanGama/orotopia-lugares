@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+<br>
+<br>
+
+
+		<div style=" margin-left: 70px;" >
+			<form method="POST" class="form-horizontal" enctype="multipart/form-data" role="form">{%csrf_token %}
+				Desea eliminar la vista {{ vista.titulo }}<br><br>
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							Aceptar
+						</button>
+				
+						&nbsp; &nbsp; &nbsp;
+						<button  type="button" title="Eliminar" class="btn btn-info" onclick="window.location.href='/vistas'">
+							Cancelar
+						</button>
+					</div>
+				</div>
+
+				<div class="hr hr-24"></div>
+			</form>
+		</div >					
+								
+	{% endblock content %}
+	
+	
