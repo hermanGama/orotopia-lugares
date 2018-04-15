@@ -6,16 +6,25 @@
   <meta charset="UTF-8">
   <title>{{tituloPage}}</title>
   
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/style.css' %}"  >
-
+  <link href="{% static 'css/stylecuento.css' %}" rel='stylesheet' type='text/css' />
   
 </head>
 
-<body>
-
+<body> 
+	<div class="social">
+		<ul>
+			<li><a href="/" class="icon"><span class="icon-home"></span></a></li>
+		</ul>
+	</div>
+	<div class="socialfirk">
+		<ul>
+			<li><a href="{{link}}" class="icon"><img src ="{% static 'flickr.png' %}"></a></li>
+		</ul>
+	</div>
   <div class="slider">
   <!-- slides -->
   <div class="slider__slides">
@@ -30,6 +39,7 @@
 				
 			  <div class="slide__inner">
 				<div class="slide__content">
+				
 				<style type="text/css">
 					.slide:nth-child({{dato.idPagina}}) .slide__inner {
 					  background-image: url({{dato.imagen.url}});
@@ -37,11 +47,9 @@
 				</style>
 				  <h2 class="slide__heading">{{dato.titulo}} </h2>
 				  <p class="slide__text"  >{{dato.descripcioncorta}}</p>
-				  
-				   <button type="submit"  onclick="ventanaNueva('/{{dato.idPagina}}/vermas')"  class="btn bb" >Ver mas..</button>	
+				 
+				  <button type="submit"  onclick="ventanaNueva('/{{dato.idPagina}}/vermas')"  class="btn bb" >Ver mas..</button>	
 
-
- 
 				</div>
 			  </div>
 			</div>			

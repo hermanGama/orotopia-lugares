@@ -88,6 +88,7 @@ def detalleVista(request,id):
 	if dict["comparar"]:
 		datos=imagenVista.objects.get(id=id)
 		dict["tituloPage"]=datos.titulo
+		dict["link"] = datos.link
 		dict["vistas"]=detalleImagen.objects.filter(imagenVistaDetalle=id)
 		print(dict["vistas"])
 		return render(request, 'detalle.html',dict)
@@ -146,6 +147,25 @@ def listarVistas(request):
 	else:
 		return redirect("login")
 
+def listarVistasContenido(request):
+	if request.user.is_authenticated:
+		lista=imagenVista.objects.all()
+		return render(request, 'listarVistaContenido.html',{'lista': lista})
+	else:
+		return redirect("login")
+
+def listarContenido(request,id):
+	if request.user.is_authenticated:
+		lista=detalleImagen.objects.filter(imagenVistaDetalle=id)
+		if lista:
+			return render(request, 'listarContenido.html', {'lista': lista})
+		else:
+			return render(request, 'botonadd.html', {'id': id})
+
+	else:
+		return redirect("login")
+
+
 
 def eliminarVista(request, id):
 	if request.user.is_authenticated:
@@ -171,6 +191,23 @@ def editVista(request, id):
 		else:
 			form=VistaForm(instance=vistas)
 			templa = 'editarVista.html'
+			book = {'form':form}
+			return render(request, templa, book)
+	else:
+		return redirect('login', permanent=False)
+
+def editContenido(request, id):
+	if request.user.is_authenticated:
+		contenido = detalleImagen.objects.get(id=id)
+		if request.POST:
+			form=ContenidoForm(request.POST, request.FILES, instance=contenido)
+			print(form)
+			if form.is_valid():
+				form.save()
+				return redirect('listarVistasContenido')
+		else:
+			form=ContenidoForm(instance=contenido)
+			templa = 'editarContenido.html'
 			book = {'form':form}
 			return render(request, templa, book)
 	else:

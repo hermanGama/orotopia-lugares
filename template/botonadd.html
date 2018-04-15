@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+	 <section class="content-header">
+      <h1>
+			Contenido
+        <small>Agregar</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Contenido</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+     
+      <!-- Main row -->
+      <div class="row">
+			
+			
+
+	
+								<!-- PAGE CONTENT BEGINS -->
+								<br>
+
+		<div >
+		
+			
+		
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">					
+						<button class="btn btn-info" onclick="window.location.href='/{{id}}/add/contenido'">
+							Agregar Contenido a la Vista
+						</button>
+					</div>
+				</div>
+		
+		</div >		
+<br>
+<br>		
+		
+		
+				
+      </div>
+      <!-- /.row (main row) -->
+
+    </section>			
+	{% endblock content %}
+	
+

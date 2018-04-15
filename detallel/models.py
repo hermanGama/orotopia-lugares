@@ -21,6 +21,7 @@ class imagenVista(models.Model):
         (u'B', u'Normal'),
     )
     activo = models.CharField(max_length=2, choices=ESTADO,default=u'B', )
+    link= models.CharField(max_length=700, null=True)
 
 
     def __unicode__(self):

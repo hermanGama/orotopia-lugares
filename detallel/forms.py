@@ -14,10 +14,10 @@ class TemplateForm(forms.ModelForm):
 class VistaForm(forms.ModelForm):
 	titulo=forms.CharField(widget=forms.TextInput (attrs={ 'size': '52'}))
 	imagen =  forms.ImageField(widget=forms.ClearableFileInput(attrs={'accept':'image/*','type': 'file', 'id': 'fondo'}))
-
+	link = forms.CharField(widget=forms.TextInput(attrs={'size': '52'}))
 	class Meta:
 		model = imagenVista
-		fields = ('titulo', 'imagen', 'activo')
+		fields = ('titulo', 'imagen', 'activo', 'link')
 
 
 class ContenidoForm(forms.ModelForm):

@@ -31,7 +31,10 @@ urlpatterns = [
 	path('template',listarTemplate, name='listarTemplate'),
 	path('vistas',listarVistas, name='listarVistas'),
 	path('<int:id>/edit/vista',editVista, name='editVista'),
+	path('<int:id>/edit/contenido',editContenido, name='editContenido'),
 	path('<int:id>/edit/template',editTemplate, name='editTemplate'),
 	path('<int:id>/add/contenido', agregarContenido, name='agregarContenido'),
+	path('<int:id>/listar/contenido', listarContenido, name='listarContenido'),
+	path('vcontenido', listarVistasContenido, name='listarVistasContenido'),
 
 ]
